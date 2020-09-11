@@ -22,6 +22,7 @@
 #include "HiggsTauTauRun2/interface/HTTTriggerFilter.h"
 #include "HiggsTauTauRun2/interface/HTTEnergyScale.h"
 #include "HiggsTauTauRun2/interface/HTTCategories.h"
+#include "HiggsTauTauRun2/interface/HTTOnlyTau.h"
 #include "HiggsTauTauRun2/interface/HTTPairSelector.h"
 #include "HiggsTauTauRun2/interface/HTTPairGenInfo.h"
 #include "HiggsTauTauRun2/interface/BTagCheck.h"
@@ -395,6 +396,14 @@ void HTTSequence::BuildSequence(){
   if (to_check.size() > 0){
   BuildModule(eventChecker);
   BuildModule(httPrint);  
+}
+
+if (js["only_tau"].asBool()){
+    BuildModule(HTTOnlyTau("HTTOnlyTau")
+      .set_channel(channel)
+      .set_ditau_label("ditau")
+    );
+    return;
 }
 
 if(!is_data && js["do_gen_analysis"].asBool()){
