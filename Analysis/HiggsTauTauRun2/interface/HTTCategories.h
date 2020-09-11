@@ -854,6 +854,12 @@ class HTTCategories : public ModuleBase {
   double ip_sig_2_up_;
   double ip_sig_1_down_;
   double ip_sig_2_down_;
+  
+  double mvadm_score_pi_2_ ;
+  double mvadm_score_pipi0_2_ ;
+  double mvadm_score_pi2pi0_2_ ;
+  double mvadm_score_3pi_2_ ;
+  double mvadm_score_3pipi0_2_ ;  
 
   bool a1_flag_;
   bool a1_flag_2_;

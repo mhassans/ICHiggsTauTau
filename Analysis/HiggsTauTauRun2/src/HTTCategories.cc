@@ -905,6 +905,12 @@ namespace ic {
         outtree_->Branch("wt_ps_isr_down" , &wt_ps_isr_down_ );
         outtree_->Branch("wt_ps_fsr_up" , &wt_ps_fsr_up_ );
         outtree_->Branch("wt_ps_fsr_down" , &wt_ps_fsr_down_ );
+        
+        outtree_->Branch("mvadm_score_pi_2" , &mvadm_score_pi_2_ );
+        outtree_->Branch("mvadm_score_pipi0_2" , &mvadm_score_pipi0_2_ );
+        outtree_->Branch("mvadm_score_pi2pi0_2" , &mvadm_score_pi2pi0_2_ );
+        outtree_->Branch("mvadm_score_3pi_2" , &mvadm_score_3pi_2_ );
+        outtree_->Branch("mvadm_score_3pipi0_2" , &mvadm_score_3pipi0_2_ );
 
         if (channel_ == channel::em) {
           outtree_->Branch("pzetavis",          &pzetavis_.var_double);
@@ -3453,6 +3459,12 @@ namespace ic {
       Tau const* tau2 = dynamic_cast<Tau const*>(lep2);
 
       lead_pt_2_ =  tau2->lead_pt();
+      
+      mvadm_score_pi_2_ = tau2->HasTauID("MVADM2017v1DM0raw") ? tau2->GetTauID("MVADM2017v1DM0raw") : 0.0;
+      mvadm_score_pipi0_2_ = tau2->HasTauID("MVADM2017v1DM1raw") ? tau2->GetTauID("MVADM2017v1DM1raw") : 0.0;
+      mvadm_score_pi2pi0_2_ = tau2->HasTauID("MVADM2017v1DM2raw") ? tau2->GetTauID("MVADM2017v1DM2raw") : 0.0;
+      mvadm_score_3pi_2_ = tau2->HasTauID("MVADM2017v1DM10raw") ? tau2->GetTauID("MVADM2017v1DM10raw") : 0.0;
+      mvadm_score_3pipi0_2_ = tau2->HasTauID("MVADM2017v1DM11raw") ? tau2->GetTauID("MVADM2017v1DM11raw") : 0.0;
 
       tau_mva_decay_mode_2_ = tau2->HasTauID("MVADM2017v1") ? tau2->GetTauID("MVADM2017v1") : 0.0;
 
