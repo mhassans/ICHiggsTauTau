@@ -288,6 +288,13 @@ class HTTGenAnalysis : public ModuleBase {
   double wt_ps_fsr_up_;
   double wt_ps_fsr_down_;
   
+  double mvadm_score_pi_2_ ;
+  double mvadm_score_pipi0_2_ ;
+  double mvadm_score_pi2pi0_2_ ;
+  double mvadm_score_3pi_2_ ;
+  double mvadm_score_3pipi0_2_ ;  
+  int tau_mva_decay_mode_2_;
+  
  public:
   HTTGenAnalysis(std::string const& name);
   virtual ~HTTGenAnalysis();

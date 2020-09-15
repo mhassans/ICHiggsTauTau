@@ -19,7 +19,7 @@
   "sequence": {
     "usePFMET" : false,
     "only_tau" : true,
-    "do_gen_analysis" : false,
+    "do_gen_analysis" : true,
     "mc"            : "mc2018",
     "era"           : "data_2018",
     "strategy"      : "cpdecays18",

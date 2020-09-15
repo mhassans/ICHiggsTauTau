@@ -400,8 +400,9 @@ void HTTSequence::BuildSequence(){
 
 if (js["only_tau"].asBool()){
     BuildModule(HTTOnlyTau("HTTOnlyTau")
+      .set_fs(fs.get())
       .set_channel(channel)
-      .set_ditau_label("ditau")
+      .set_ditau_label("taus")
     );
     return;
 }
@@ -499,7 +500,11 @@ HTTPairSelector httPairSelector = HTTPairSelector("HTTPairSelector")
 httPairSelector.set_gen_taus_label("genParticles");
 
 BuildModule(httPairSelector);
- 
+
+
+
+
+
 if(channel != channel::tpzmm &&channel !=channel::tpzee && (is_data || js["trg_in_mc"].asBool())){
   BuildModule(HTTTriggerFilter("HTTTriggerFilter")
       .set_channel(channel)

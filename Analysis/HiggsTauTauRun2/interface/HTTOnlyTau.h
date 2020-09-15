@@ -16,6 +16,7 @@ namespace ic {
   
 class HTTOnlyTau : public ModuleBase {
  private:
+  CLASS_MEMBER(HTTOnlyTau, fwlite::TFileService*, fs)
   CLASS_MEMBER(HTTOnlyTau, std::string, ditau_label)
   CLASS_MEMBER(HTTOnlyTau, ic::channel, channel)
   TTree *outtree_;
@@ -28,6 +29,7 @@ class HTTOnlyTau : public ModuleBase {
   double mvadm_score_3pi_2_ ;
   double mvadm_score_3pipi0_2_ ;  
   int tau_mva_decay_mode_2_;
+  int tau_hps_decay_mode_2_;
   int tauFlag_2_;
 
 

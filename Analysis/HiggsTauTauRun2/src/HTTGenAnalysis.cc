@@ -406,6 +406,17 @@ namespace ic {
     std::vector<ic::GenParticle> prompt_leptons;
     std::vector<std::string> decay_types;
 
+
+    std::vector<ic::Tau*> my_taus = event->GetPtrVec<ic::Tau>("taus");
+
+    tau_mva_decay_mode_2_ = my_taus[0]->HasTauID("MVADM2017v1") ? my_taus[0]->GetTauID("MVADM2017v1") : 0.0;
+    mvadm_score_pi_2_ = my_taus[0]->HasTauID("MVADM2017v1DM0raw") ? my_taus[0]->GetTauID("MVADM2017v1DM0raw") : 0.0;
+    mvadm_score_pipi0_2_ = my_taus[0]->HasTauID("MVADM2017v1DM1raw") ? my_taus[0]->GetTauID("MVADM2017v1DM1raw") : 0.0;
+    mvadm_score_pi2pi0_2_ = my_taus[0]->HasTauID("MVADM2017v1DM2raw") ? my_taus[0]->GetTauID("MVADM2017v1DM2raw") : 0.0;
+    mvadm_score_3pi_2_ = my_taus[0]->HasTauID("MVADM2017v1DM10raw") ? my_taus[0]->GetTauID("MVADM2017v1DM10raw") : 0.0;
+    mvadm_score_3pipi0_2_ = my_taus[0]->HasTauID("MVADM2017v1DM11raw") ? my_taus[0]->GetTauID("MVADM2017v1DM11raw") : 0.0;
+
+
     double pT=0;
     HiggsPt_=-9999;
     partons_lhe_=0;
